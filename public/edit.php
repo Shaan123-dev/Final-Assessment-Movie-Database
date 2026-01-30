@@ -18,6 +18,10 @@ if (!$movie) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // CSRF Protection
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        die('CSRF validation failed.');
+    }
     try {
         $runtime = isset($_POST['runtime']) && $_POST['runtime'] !== '' ? (int)$_POST['runtime'] : null;
 
@@ -71,6 +75,7 @@ include '../includes/header.php';
 
     <!-- Step 2 -->
     <form method="POST" id="movieForm">
+        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
         <label style="color: var(--primary); font-weight: bold;">Step 2: Edit & Confirm Details</label>
         
         <input type="hidden" name="poster_path" id="f_poster" value="<?php echo htmlspecialchars($movie['poster_path']); ?>">

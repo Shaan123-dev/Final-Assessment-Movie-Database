@@ -10,6 +10,10 @@ if (isset($_SESSION['user_id'])) {
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // CSRF Protection
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        $error = 'CSRF validation failed.';
+    } else {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
 
@@ -34,10 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $error = 'Please fill in all fields.';
     }
+    }
 }
 
-// We don't include the standard header.php here because we want a clean login screen
-?>
+// We don't include the standard header.php here because we want a clean login screen?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php endif; ?>
 
     <form method="POST">
+        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
         <label>Username</label>
         <input type="text" name="username" required autofocus placeholder="Enter your username">
         
@@ -76,11 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </p>
     </div>
 
-    <!-- Demo Helper Box (Great for demonstration) -->
-    <div style="margin-top: 20px; background: rgba(99, 102, 241, 0.05); padding: 15px; border-radius: 8px; border: 1px dashed #334155;">
-        <p style="margin: 0; font-size: 0.8rem; color: #818cf8;"><strong>DEMO ACCESS:</strong></p>
-        <p style="margin: 5px 0 0; font-size: 0.8rem; color: #94a3b8;">Admin: admin / admin123</p>
-    </div>
 </div>
 
 </body>

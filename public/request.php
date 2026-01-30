@@ -52,6 +52,7 @@ include '../includes/header.php';
     <div class="form-card" style="margin: 0;">
         <h3>Suggest a Movie</h3>
         <form method="POST">
+        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
             <label>Movie Title</label>
             <input type="text" name="movie_title" required placeholder="e.g. Interstellar">
             

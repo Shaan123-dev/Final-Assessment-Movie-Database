@@ -58,9 +58,14 @@ include '../includes/header.php';
                            href='edit.php?id=".$m['id']."'
                            onclick='event.stopPropagation();'>Edit</a>
 
-                        <a class='btn-s delete'
-                           href='delete.php?id=".$m['id']."'
-                           onclick='event.stopPropagation(); return confirm(\"Delete this movie?\");'>Delete</a>
+                        <form method='POST' action='delete.php' style='display:inline;' onclick='event.stopPropagation();'>
+                            <input type='hidden' name='id' value='".$m['id']."'>
+                            <input type='hidden' name='csrf_token' value='".$_SESSION['csrf_token']."'>
+                            <button type='submit' class='btn-s delete'
+                                onclick='event.stopPropagation(); return confirm(\"Delete this movie?\");'>
+                                Delete
+                            </button>
+                        </form>
                       </td>";
             }
 

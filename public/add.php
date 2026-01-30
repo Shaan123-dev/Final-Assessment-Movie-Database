@@ -6,6 +6,10 @@ include '../includes/checkRole.php';
 requireAdmin();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // CSRF Protection
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        die('CSRF validation failed.');
+    }
     try {
         $stmt = $pdo->prepare("
             INSERT INTO movies (title, year, rating, genre, cast_members, description, director, runtime, poster_path) 
@@ -55,6 +59,7 @@ include '../includes/header.php';
 
     <!-- Manual/Edit Form Section -->
     <form method="POST" id="movieForm">
+        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
         <label style="color: var(--primary); font-weight: bold;">Step 2: Confirm Details</label>
         
         <input type="hidden" name="poster_path" id="f_poster">

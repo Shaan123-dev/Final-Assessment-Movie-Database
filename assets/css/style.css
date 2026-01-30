@@ -277,8 +277,17 @@ input:focus, textarea:focus {
 }
 
 
-.delete { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
-.delete:hover { background: var(--danger); color: white; }
+.delete {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.delete:hover {
+    background: rgba(239, 68, 68, 0.35);
+    color: white;
+}
+
 
 /* --- 7. API Search Dropdown --- */
 .dropdown {
