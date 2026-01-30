@@ -70,4 +70,22 @@ assessment/
   ```php
   if (session_status() === PHP_SESSION_NONE) session_start();
   
+## Limitations
+This project successfully meets the Task 2 requirements, however there are a few limitations:
 
+- The CRUD functionality (Add/Edit/Delete) is restricted only to the **Admin** role for security reasons. Normal users can only view the movie database.
+- The application currently supports only a basic movie request feature, but it does not include automatic user notifications when requests are completed.
+- Advanced filtering options (such as searching by year range, rating range, or multiple genres) are not implemented.
+- The TMDB API autofill depends on an active internet connection and a valid API key.
+- The system does not currently include CSRF protection, which could be added for stronger form security.
+
+## Future Work / Improvements
+In future versions of the Movie Database system, the following improvements could be implemented:
+
+- Add a full notification system so users can see when their movie requests are approved or completed.
+- Implement advanced search and filtering features (e.g., by year, rating, director, runtime).
+- Add user profile pages with personalised movie recommendations.
+- Improve security further by adding CSRF tokens and stronger password policies.
+- Allow users to create watchlists or favourite movie collections.
+- Enhance the UI with pagination, sorting, and better mobile optimisation.
+- Deploy the project on a live server with HTTPS for real-world usage.
