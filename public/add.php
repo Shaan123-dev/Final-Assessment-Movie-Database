@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     try {
         $stmt = $pdo->prepare("
-            INSERT INTO movies (title, year, rating, genre, cast_members, description, director, runtime, poster_path) 
+            INSERT INTO Assessment_movies (title, year, rating, genre, cast_members, description, director, runtime, poster_path) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ");
 

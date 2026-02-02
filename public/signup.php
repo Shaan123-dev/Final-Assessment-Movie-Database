@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Passwords do not match.";
     } else {
         // Check if username already exists
-        $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ?");
+        $stmt = $pdo->prepare("SELECT id FROM Assessment_users WHERE username = ?");
         $stmt->execute([$username]);
         
         if ($stmt->fetch()) {
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             
             // Insert new user (Role is 'user' by default)
-            $insert = $pdo->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, 'user')");
+            $insert = $pdo->prepare("INSERT INTO Assessment_users (username, password, role) VALUES (?, ?, 'user')");
             if ($insert->execute([$username, $hashed_password])) {
                 $success = "Account created! <a href='login.php' style='color:#818cf8'>Login here</a>";
             } else {

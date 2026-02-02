@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($username) && !empty($password)) {
         // Use Prepared Statement to prevent SQL Injection
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt = $pdo->prepare("SELECT * FROM Assessment_users WHERE username = ?");
         $stmt->execute([$username]);
         $user = $stmt->fetch();
 

@@ -16,7 +16,7 @@ if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST
 $id = (int)($_POST['id'] ?? 0);
 
 if ($id > 0) {
-    $stmt = $pdo->prepare("DELETE FROM movies WHERE id = ?");
+    $stmt = $pdo->prepare("DELETE FROM Assessment_movies WHERE id = ?");
     $stmt->execute([$id]);
 }
 

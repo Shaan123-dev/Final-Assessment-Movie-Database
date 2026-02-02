@@ -32,7 +32,7 @@ include '../includes/header.php';
 
         <tbody id="movieTable">
         <?php
-        $stmt = $pdo->query("SELECT * FROM movies ORDER BY id DESC");
+        $stmt = $pdo->query("SELECT * FROM Assessment_movies ORDER BY id DESC");
 
         while ($m = $stmt->fetch(PDO::FETCH_ASSOC)) {
 

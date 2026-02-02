@@ -6,7 +6,7 @@ $qraw = $_GET['q'] ?? '';
 $q = "%" . $qraw . "%";
 
 $stmt = $pdo->prepare("
-    SELECT * FROM movies
+    SELECT * FROM Assessment_movies
     WHERE title LIKE ?
        OR genre LIKE ?
        OR cast_members LIKE ?

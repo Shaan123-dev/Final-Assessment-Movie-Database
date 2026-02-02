@@ -8,7 +8,7 @@ requireAdmin();
 $id = (int)($_GET['id'] ?? 0);
 $message = '';
 
-$stmt = $pdo->prepare("SELECT * FROM movies WHERE id = ?");
+$stmt = $pdo->prepare("SELECT * FROM Assessment_movies WHERE id = ?");
 $stmt->execute([$id]);
 $movie = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         $runtime = isset($_POST['runtime']) && $_POST['runtime'] !== '' ? (int)$_POST['runtime'] : null;
 
-        $sql = "UPDATE movies 
+        $sql = "UPDATE Assessment_movies 
                 SET title=?, year=?, rating=?, genre=?, cast_members=?, description=?, director=?, runtime=?, poster_path=? 
                 WHERE id=?";
         $updateStmt = $pdo->prepare($sql);

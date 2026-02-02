@@ -10,7 +10,7 @@ if ($id <= 0) {
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT * FROM movies WHERE id = ?");
+$stmt = $pdo->prepare("SELECT * FROM Assessment_movies WHERE id = ?");
 $stmt->execute([$id]);
 $m = $stmt->fetch(PDO::FETCH_ASSOC);
 
