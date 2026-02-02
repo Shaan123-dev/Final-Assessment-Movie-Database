@@ -18,25 +18,25 @@ The system allows users to browse movies, while administrators can manage the mo
 ## Follow these steps to run the project in herald server:
 
 ## Server Requirements
-Herald Server Credentials
-PHP 8.0 or higher
-MySQL / MariaDB Database
-Apache Web Server
-Deployment Steps
-Upload Project Folder into server
+- Herald Server Credentials
+- PHP 8.0 or higher
+- MySQL / MariaDB Database
+- Apache Web Server
+- Deployment Steps
+- Upload Project Folder into server
 
-Log in to server by using crendentials
-upload your project folder into server inside public_html/ folder.
-Create MySQL Tables in server
+## Deployment Steps
+- Log in to server by using crendentials
+- upload your project folder into server inside public_html/ folder.
+- Create MySQL Tables in server
 
-Go to public_html and write code mysql -p
-Use the defult databse.
-Create Tables using mysql queries.
-Configure Database Connection
+- Go to public_html and write code mysql -p
+- Use the defult databse.
+- Create Tables using mysql queries.
+- Configure Database Connection
+- Update the database credentials in: db.php
 
-Update the database credentials in: db.php
-Run your project in the browswe
-run the project in any browser using this link : https://student.heraldcollege.edu.np/~np03cy4s250026/assessment/public/ 
+- run the project in any browser using this link : https://student.heraldcollege.edu.np/~np03cy4s250026/assessment/public/ 
 
 ## Follow these steps to run the project locally:
 1. Copy the project folder into:
