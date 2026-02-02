@@ -112,6 +112,10 @@ The system allows users to browse movies, while administrators can manage the mo
 <img width="1897" height="987" alt="image" src="https://github.com/user-attachments/assets/d5fce6f1-6ad3-4723-b5bb-eefe503dd0c9" />
 
 
+## 
+Developed by: **Shaan Shrestha**  
+student id : **2548925**
+Module: **Fullstack- 5CS045*** (Assessment Project)
 
 
 
